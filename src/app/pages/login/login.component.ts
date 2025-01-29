@@ -26,7 +26,6 @@ export class LoginComponent {
   password: string = '';
 
   onLogin() {
-    console.log('Login attempt', { username: this.username });
-    // Aqui você implementará a lógica de login
+    console.log('Login ', { username: this.username });
   }
 }
