@@ -1,18 +1,25 @@
+
 import { Routes } from '@angular/router';
-import { LoginComponent } from './pages/login/login.component';
+// import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
   {
     path: 'login',
-    component: LoginComponent
+    loadComponent: () =>
+      import('./pages/login/login.component').then(m => m.LoginComponent)
   },
   {
     path: '',
-    redirectTo: 'login',
-    pathMatch: 'full'
-  },
-  {
-    path: '**',
-    redirectTo: 'login'
+    loadComponent: () =>
+      import('./components/navbar/navbar.component').then(m => m.NavComponent),
+    // canActivate: [authGuard],
+    children: [
+      {
+        path: 'home',
+        loadComponent: () =>
+          import('./pages/home/home.component').then(m => m.HomeComponent)
+      },
+      // Adicione outras rotas protegidas aqui
+    ]
   }
 ];
