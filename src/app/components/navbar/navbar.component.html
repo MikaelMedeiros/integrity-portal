@@ -1,0 +1,57 @@
+<div class="flex flex-col min-h-screen h-full">
+  <!-- Top Navigation -->
+  <nav class="bg-surface-500 h-[60px] w-full z-50">
+    <div class="px-4 h-full">
+      <div class="flex items-center justify-between h-full">
+        <div class="flex items-center">
+          <button class="p-2 text-white hover:bg-white/10 rounded-lg mr-3"
+                  (click)="toggleSidebar()"
+                  tooltipPosition="right">
+            <i class="pi pi-bars"></i>
+          </button>
+          <span class="text-white font-bold">{{ pageTitle }}</span>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <ng-container *ngTemplateOutlet="actionTemplate"></ng-container>
+          <div class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center"
+               pTooltip="Perfil do usuário"
+               tooltipPosition="left">
+            <i class="pi pi-user text-white"></i>
+          </div>
+          <span class="text-white">Dr. João Silva</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Content Area -->
+  <div class="flex flex-1">
+    <!-- Sidebar -->
+    <div class="transition-all duration-300 h-full"
+         [class]="isMenuOpen ? 'w-64' : 'w-16'">
+      <nav class="bg-surface-500 flex flex-col h-[calc(100vh-60px)] secundary">
+        <a *ngFor="let item of menuItems"
+           [routerLink]="item.route"
+           class="flex items-center px-3 h-14 text-white hover:bg-white/10 transition-colors"
+           [class.justify-center]="!isMenuOpen"
+           [pTooltip]="!isMenuOpen ? item.description : ''"
+           tooltipPosition="right">
+          <i [class]="'pi ' + item.icon"
+             [class.text-2xl]="!isMenuOpen"
+             class="text-xl transition-all duration-300"></i>
+          <span *ngIf="isMenuOpen"
+                class="ml-2">{{item.label}}</span>
+        </a>
+      </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 overflow-auto"
+         [class.mr-[320px]]="isFilterOpen">
+      <main class="p-4 h-full">
+        <router-outlet></router-outlet>
+      </main>
+    </div>
+  </div>
+</div>
