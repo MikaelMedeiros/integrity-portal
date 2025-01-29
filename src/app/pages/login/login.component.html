@@ -1,0 +1,55 @@
+<div class="flex items-center justify-center min-h-screen bg-surface-100">
+  <p-card class="w-full max-w-md mx-4">
+      <div class="text-center mb-8">
+          <h2 class="text-2xl font-semibold text-surface-900">Login</h2>
+          <p class="text-surface-600">Entre com suas credenciais</p>
+      </div>
+
+      <div class="flex flex-col gap-4">
+          <div class="flex flex-col gap-2">
+              <label for="username" class="text-surface-600">Usuário</label>
+              <input
+                  pInputText
+                  id="username"
+                  [(ngModel)]="username"
+                  class="w-full p-3"
+                  placeholder="Digite seu usuário"
+              />
+          </div>
+
+          <div class="flex flex-col gap-2">
+              <label for="password" class="text-surface-600">Senha</label>
+              <p-password
+                  id="password"
+                  [(ngModel)]="password"
+                  [toggleMask]="true"
+                  placeholder="Digite sua senha"
+                  [style]="{'width': '100%'}"
+                  [inputStyle]="{'width': '100%', 'padding': '1rem'}"
+              ></p-password>
+          </div>
+
+          <div class="flex justify-between items-center">
+              <div class="flex items-center gap-2">
+                  <p-checkbox
+                      [binary]="true"
+                      id="remember-me"
+                  ></p-checkbox>
+                  <label for="remember-me" class="text-surface-600">Lembrar-me</label>
+              </div>
+              <a href="#" class="text-primary hover:text-primary-600">Esqueceu a senha?</a>
+          </div>
+
+          <p-button
+              label="Entrar"
+              (onClick)="onLogin()"
+              styleClass="w-full"
+          ></p-button>
+
+          <p class="text-center text-surface-600 mt-4">
+              Não tem uma conta?
+              <a href="#" class="text-primary hover:text-primary-600">Registre-se</a>
+          </p>
+      </div>
+  </p-card>
+</div>
