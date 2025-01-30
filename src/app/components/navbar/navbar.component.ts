@@ -3,18 +3,24 @@ import { ChangeDetectionStrategy, Component, ContentChild, Input, TemplateRef } 
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { TooltipModule } from 'primeng/tooltip';
 import { Router } from '@angular/router';
+import { BreadcrumbModule } from 'primeng/breadcrumb';  // Adicione esta linha
+import { BreadcrumbService } from '../../shared/breadcrumb.service';
 
 
 @Component({
   selector: 'app-navbar',
-  imports: [CommonModule, RouterLink, RouterOutlet, TooltipModule],
+  imports: [CommonModule, RouterLink, RouterOutlet, TooltipModule, BreadcrumbModule  ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavComponent {
-
-  constructor(private router: Router) {}
+  items$;
+  home;
+  constructor(private router: Router, private breadcrumbService: BreadcrumbService) {
+    this.items$ = this.breadcrumbService.breadcrumbItems$;
+    this.home = this.breadcrumbService.getHomeItem();
+  }
 
   @Input() pageTitle: string = 'Sistema';
   @Input() isFilterOpen = false;

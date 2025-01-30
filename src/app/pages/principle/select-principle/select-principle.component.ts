@@ -4,6 +4,7 @@ import { SkeletonModule } from 'primeng/skeleton';
 import { ButtonModule } from 'primeng/button';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { BreadcrumbService } from '../../../shared/breadcrumb.service';
 
 @Component({
   selector: 'app-select-principle',
@@ -12,7 +13,8 @@ import { Router } from '@angular/router';
   styleUrl: './select-principle.component.css'
 })
 export class SelectPrincipleComponent {
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+    private breadcrumbService: BreadcrumbService) { }
   public principles = [
     { id: 1, title: 'Comprometimento da Alta Administração', subtitle: 'This is the first principle', description: '', image: 'https://primefaces.org/cdn/primeng/images/card-ng.jpg' },
     { id: 2, title: 'Código de Conduta, Políticas e Procedimentos', subtitle: 'This is the second principle', description: '', image: 'https://primefaces.org/cdn/primeng/images/card-ng.jpg' },
@@ -26,5 +28,8 @@ export class SelectPrincipleComponent {
 
   public navigateToPrinciple(id: number) {
     this.router.navigate(['principle', id]);
+    this.breadcrumbService.setBreadcrumb([
+      { label: 'Principio', routerLink: '/principle' },
+    ]);
   }
 }

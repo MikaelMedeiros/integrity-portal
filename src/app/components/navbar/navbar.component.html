@@ -52,8 +52,16 @@
     </div>
 
      <!-- Main Content -->
-     <div class="flex-1 overflow-hidden relative"
+     <div class="max-w-screen-xl mx-auto mb-4">
+      <p-breadcrumb
+        [model]="(items$ | async) ?? []"
+        [home]="home"
+        [styleClass]="'border-none bg-transparent'"
+      ></p-breadcrumb>
+    </div>
+     <div class="flex-1 overflow-hidden relative" style="margin-top: 1rem;"
      [class.mr-[320px]]="isFilterOpen"><!-- '   ' Modificado overflow e adicionado relative -->
+
   <main class="p-4 h-full overflow-y-auto absolute inset-0"> <!-- Modificado para absolute e inset-0 -->
     <router-outlet></router-outlet>
   </main>
