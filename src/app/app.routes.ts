@@ -35,7 +35,7 @@ export const routes: Routes = [
           import('./pages/principle/detail-principle/detail-principle.component')
             .then(m => m.DetailPrincipleComponent),
         data: {
-          breadcrumb: 'Detalhe do Princípio'
+          breadcrumb: 'detail'
         }
       }
     ]
