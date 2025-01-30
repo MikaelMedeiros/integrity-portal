@@ -20,5 +20,9 @@ export class HomeComponent {
     { title: 'Sixth Principle', subtitle: 'This is the sixth principle', description: '', image: 'https://via.placeholder.com/150' },
     { title: 'Seventh Principle', subtitle: 'This is the seventh principle', description: '', image: 'https://via.placeholder.com/150' },
     { title: 'Eighth Principle', subtitle: 'This is the eighth principle', description: '', image: 'https://via.placeholder.com/150' },
+    { title: 'Fifth Principle', subtitle: 'This is the fifth principle', description: '', image: 'https://via.placeholder.com/150' },
+    { title: 'Sixth Principle', subtitle: 'This is the sixth principle', description: '', image: 'https://via.placeholder.com/150' },
+    { title: 'Seventh Principle', subtitle: 'This is the seventh principle', description: '', image: 'https://via.placeholder.com/150' },
+    { title: 'Eighth Principle', subtitle: 'This is the eighth principle', description: '', image: 'https://via.placeholder.com/150' },
   ]
 }

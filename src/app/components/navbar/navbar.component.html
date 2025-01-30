@@ -51,12 +51,12 @@
       </nav>
     </div>
 
-    <!-- Main Content -->
-    <div class="flex-1 overflow-auto"
-         [class.mr-[320px]]="isFilterOpen">
-      <main class="p-4 h-full">
-        <router-outlet></router-outlet>
-      </main>
-    </div>
+     <!-- Main Content -->
+     <div class="flex-1 overflow-hidden relative"
+     [class.mr-[320px]]="isFilterOpen"><!-- '   ' Modificado overflow e adicionado relative -->
+  <main class="p-4 h-full overflow-y-auto absolute inset-0"> <!-- Modificado para absolute e inset-0 -->
+    <router-outlet></router-outlet>
+  </main>
+</div>
   </div>
 </div>
