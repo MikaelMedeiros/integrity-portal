@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, ContentChild, Input, TemplateRef } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { TooltipModule } from 'primeng/tooltip';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,6 +13,9 @@ import { TooltipModule } from 'primeng/tooltip';
  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavComponent {
+
+  constructor(private router: Router) {}
+
   @Input() pageTitle: string = 'Sistema';
   @Input() isFilterOpen = false;
   @ContentChild('actionTemplate') actionTemplate!: TemplateRef<any>;
@@ -37,5 +41,9 @@ export class NavComponent {
 
   toggleSidebar() {
     this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  singout() {
+    this.router.navigate(['/login']);
   }
 }

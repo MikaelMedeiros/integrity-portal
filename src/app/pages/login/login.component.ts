@@ -6,6 +6,8 @@ import { ButtonModule } from 'primeng/button';
 import { PasswordModule } from 'primeng/password';
 import { CardModule } from 'primeng/card';
 import { CheckboxModule } from 'primeng/checkbox';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -22,10 +24,14 @@ import { CheckboxModule } from 'primeng/checkbox';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  constructor(private router: Router) {}
+
   username: string = '';
   password: string = '';
 
   onLogin() {
     console.log('Login ', { username: this.username });
+
+    this.router.navigate(['/home']);
   }
 }
