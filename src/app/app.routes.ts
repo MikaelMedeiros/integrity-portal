@@ -1,6 +1,5 @@
-// app.routes.ts
+
 import { Routes } from '@angular/router';
-// import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
   {
@@ -14,18 +13,12 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./components/navbar/navbar.component')
         .then(m => m.NavComponent),
-    // canActivate: [authGuard],
     children: [
       {
         path: 'home',
         loadComponent: () =>
           import('./pages/home/home.component')
-            .then(m => m.HomeComponent),
-        data: {
-          breadcrumb: [
-            { label: 'Home', routerLink: '/home' }
-          ]
-        }
+            .then(m => m.HomeComponent)
       },
       {
         path: 'principle',
@@ -33,10 +26,7 @@ export const routes: Routes = [
           import('./pages/principle/select-principle/select-principle.component')
             .then(m => m.SelectPrincipleComponent),
         data: {
-          breadcrumb: [
-            { label: 'Home', routerLink: '/home' },
-            { label: 'Princípios', routerLink: '/principle' }
-          ]
+          breadcrumb: 'Princípios'
         }
       },
       {
@@ -45,10 +35,7 @@ export const routes: Routes = [
           import('./pages/principle/detail-principle/detail-principle.component')
             .then(m => m.DetailPrincipleComponent),
         data: {
-          breadcrumb: [
-            { label: 'Home', routerLink: '/home' },
-            { label: 'Princípios', routerLink: '/principle' }
-          ]
+          breadcrumb: 'Detalhe do Princípio'
         }
       }
     ]

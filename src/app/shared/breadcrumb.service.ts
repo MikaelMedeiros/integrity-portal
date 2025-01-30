@@ -1,7 +1,8 @@
-// breadcrumb.service.ts
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { MenuItem } from 'primeng/api';
+import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -12,17 +13,40 @@ export class BreadcrumbService {
 
   breadcrumbItems$ = this.breadcrumbItems.asObservable();
 
-  setBreadcrumb(items: MenuItem[]) {
-    this.breadcrumbItems.next(items);
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe(() => {
+      const breadcrumbs = this.createBreadcrumbs(this.activatedRoute.root);
+      this.breadcrumbItems.next(breadcrumbs);
+    });
   }
 
-  addItem(item: MenuItem) {
-    const currentItems = this.breadcrumbItems.value;
-    this.breadcrumbItems.next([...currentItems, item]);
-  }
+  private createBreadcrumbs(route: ActivatedRoute, url: string = '', breadcrumbs: MenuItem[] = []): MenuItem[] {
+    const children: ActivatedRoute[] = route.children;
 
-  clear() {
-    this.breadcrumbItems.next([]);
+    if (children.length === 0) {
+      return breadcrumbs;
+    }
+
+    for (const child of children) {
+      const routeURL: string = child.snapshot.url.map(segment => segment.path).join('/');
+      if (routeURL !== '') {
+        url += `/${routeURL}`;
+      }
+
+      const label = child.snapshot.data['breadcrumb'];
+      if (label) {
+        breadcrumbs.push({
+          label,
+          routerLink: url
+        });
+      }
+
+      return this.createBreadcrumbs(child, url, breadcrumbs);
+    }
+
+    return breadcrumbs;
   }
 
   getHomeItem(): MenuItem {

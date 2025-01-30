@@ -28,8 +28,6 @@ export class SelectPrincipleComponent {
 
   public navigateToPrinciple(id: number) {
     this.router.navigate(['principle', id]);
-    this.breadcrumbService.setBreadcrumb([
-      { label: 'Principio', routerLink: '/principle' },
-    ]);
+
   }
 }

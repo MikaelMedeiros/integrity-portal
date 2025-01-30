@@ -16,9 +16,7 @@ import { BreadcrumbService } from '../../shared/breadcrumb.service';
 export class HomeComponent {
 
     constructor(
-      private breadcrumbService: BreadcrumbService) {
-        this.breadcrumbService.setBreadcrumb([
-        ]);
+      ) {
        }
 
 }
