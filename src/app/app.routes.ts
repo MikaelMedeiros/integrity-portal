@@ -21,20 +21,12 @@ export const routes: Routes = [
             .then(m => m.HomeComponent)
       },
       {
-        path: 'principle',
-        loadComponent: () =>
-          import('./pages/principle/select-principle/select-principle.component')
-            .then(m => m.SelectPrincipleComponent),
-        data: {
-          breadcrumb: 'Princípios'
-        }
-      },
-      {
         path: 'principle/:id',
         loadComponent: () =>
           import('./pages/principle/detail-principle/detail-principle.component')
             .then(m => m.DetailPrincipleComponent),
         data: {
+          nome: 'name',
           breadcrumb: 'detail'
         }
       }

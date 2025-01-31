@@ -1,0 +1,18 @@
+<p-table [value]="indicators" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template #header>
+        <tr>
+            <th>Descrição</th>
+            <th>Possui evidência?</th>
+            <th>Evidências</th>
+            <th>Status</th>
+        </tr>
+    </ng-template>
+    <ng-template #body let-indicator>
+        <tr>
+            <td>{{ indicator.description }}</td>
+            <td>{{ indicator.evidence }}</td>
+            <td>Anexd</td>
+            <td>{{ indicator.status }}</td>
+        </tr>
+    </ng-template>
+</p-table>

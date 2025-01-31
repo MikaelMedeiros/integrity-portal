@@ -1,0 +1,9 @@
+<p-accordion value="0">
+    <p-accordion-panel *ngFor="let sub of subcomponents" value="{{sub.id}}">
+        <p-accordion-header>{{sub.header}}</p-accordion-header>
+        <p-accordion-content>
+            <app-detail-indicators [indicators]="sub.indicators"></app-detail-indicators>
+        </p-accordion-content>
+    </p-accordion-panel>
+</p-accordion>
+

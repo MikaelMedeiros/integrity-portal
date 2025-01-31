@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { SelectSubcomponentComponent } from "../../select-subcomponent/select-subcomponent.component";
 
 @Component({
   selector: 'app-detail-principle',
   templateUrl: './detail-principle.component.html',
-  styleUrls: ['./detail-principle.component.css']
+  styleUrls: ['./detail-principle.component.css'],
+  imports: [SelectSubcomponentComponent]
 })
 export class DetailPrincipleComponent implements OnInit {
   id: string | null = null;
