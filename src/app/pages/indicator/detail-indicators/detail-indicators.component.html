@@ -7,12 +7,34 @@
             <th>Status</th>
         </tr>
     </ng-template>
-    <ng-template #body let-indicator>
+    <ng-template #body let-indicator let-editing="editing">
         <tr>
-            <td>{{ indicator.description }}</td>
-            <td>{{ indicator.evidence }}</td>
-            <td>Anexd</td>
-            <td>{{ indicator.status }}</td>
+            <td >                
+                {{ indicator.description }}
+            </td>
+        
+            <td [pEditableColumn]="indicator.code" pEditableColumnField="code">
+                <p-cellEditor>
+                    <ng-template #input>
+                        <p-select [options]="evidences" [(ngModel)]="indicator.code"  optionLabel="name" placeholder="Selecione" />
+                    </ng-template>            
+                    <ng-template #output>
+                        {{ indicator.name }}
+                    </ng-template>
+                </p-cellEditor>
+            </td>
+        
+            <td>
+                
+                    
+                        ANEXER
+                    
+            </td>
+        
+            <td >
+               
+                   status
+            </td>
         </tr>
-    </ng-template>
+    </ng-template>    
 </p-table>
