@@ -9,32 +9,32 @@
     </ng-template>
     <ng-template #body let-indicator let-editing="editing">
         <tr>
-            <td >                
+            <td >
                 {{ indicator.description }}
             </td>
-        
+
             <td [pEditableColumn]="indicator.code" pEditableColumnField="code">
-                <p-cellEditor>
-                    <ng-template #input>
-                        <p-select [options]="evidences" [(ngModel)]="indicator.code"  optionLabel="name" placeholder="Selecione" />
-                    </ng-template>            
-                    <ng-template #output>
-                        {{ indicator.name }}
-                    </ng-template>
-                </p-cellEditor>
-            </td>
-        
+              <p-cellEditor>
+                  <ng-template #input>
+                      <p-select [options]="evidences" [(ngModel)]="indicator.evidence" optionValue="code"  optionLabel="name" placeholder="Selecione" />
+                  </ng-template>
+                  <ng-template #output>
+                      {{ indicator.evidence ?  "Sim" : "Nao" }}
+                  </ng-template>
+              </p-cellEditor>
+          </td>
+
             <td>
-                
-                    
+
+
                         ANEXER
-                    
+
             </td>
-        
+
             <td >
-               
+
                    status
             </td>
         </tr>
-    </ng-template>    
+    </ng-template>
 </p-table>
