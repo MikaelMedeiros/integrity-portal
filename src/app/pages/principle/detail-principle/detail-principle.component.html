@@ -1,2 +1,7 @@
 <p>detail-principle {{id}} works!</p>
-<app-select-subcomponent></app-select-subcomponent>
+
+@if(layout?.subcomponents) {
+    <app-select-subcomponent [subcomponents]="subcomponents"></app-select-subcomponent>
+} @else {
+    <app-detail-indicators [indicators]="indicators"></app-detail-indicators>
+}
