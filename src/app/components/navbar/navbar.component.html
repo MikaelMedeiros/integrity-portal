@@ -42,7 +42,7 @@
       class="transition-all duration-300 h-full"
       [class]="isMenuOpen ? 'w-64' : 'w-16'"
     >
-      <nav class="bg-surface-500 flex flex-col h-[calc(100vh-60px)] secundary">
+      <nav class="bg-primary flex flex-col h-[calc(100vh-60px)] secundary">
         <a
           *ngFor="let item of menuItems"
           [routerLink]="item.route"
