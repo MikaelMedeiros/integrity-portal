@@ -1,4 +1,4 @@
-@if(layout?.subcomponents) {
+@if(layout && layout.subcomponents && layout.subcomponents.length > 0) {
     <app-select-subcomponent [subcomponents]="subcomponents"></app-select-subcomponent>
 } @else {
     <app-detail-indicators [indicators]="indicators"></app-detail-indicators>

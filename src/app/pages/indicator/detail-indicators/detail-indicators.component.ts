@@ -18,7 +18,7 @@ export class DetailIndicatorsComponent {
   evidences: any[] = [
     { name: 'Sim', code: 1 },
     { name: 'Não', code: 0 },
-    { name: 'Não se aplica', code: -1 }
+    { name: 'N/A', code: -1 }
   ];
   selectedEvidence: boolean | null = null;
 

@@ -40,7 +40,7 @@ export class NavComponent {
       label: 'Cadastro',
       icon: 'pi-user-plus',
       route: '/cadastro',
-      description: 'Cadastro de pacientes e funcionários'
+      description: 'Cadastro de colaboradores'
     },
 
   ];
