@@ -16,7 +16,10 @@
             <td [pEditableColumn]="indicator.code" pEditableColumnField="code">
               <p-cellEditor>
                   <ng-template #input>
-                      <p-select [options]="evidences" [(ngModel)]="indicator.evidence" optionValue="code"  optionLabel="name" placeholder="Selecione" />
+                      <p-select [options]="evidences" [(ngModel)]="indicator.evidence" optionValue="code"  optionLabel="name" placeholder="Selecione"
+                      [appendTo]="'body'"
+                      [panelStyle]="{'z-index': '9999'}"
+                      [scrollHeight]="'400px'" />
                   </ng-template>
                   <ng-template #output>
                       {{ indicator.evidence ?  "Sim" : "Nao" }}
