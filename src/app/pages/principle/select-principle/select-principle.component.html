@@ -1,14 +1,14 @@
 <div class="container">
-    <div *ngFor="let card of principles" class="card-item">        
+    <div *ngFor="let card of principles" class="card-item">
         @defer {
             <p-card [style]="{ width: '20rem', overflow: 'hidden' }" (click)="navigateToPrinciple(card.id)">
                 <ng-template #header>
                     <img alt="Card" class="w-full" src="https://primefaces.org/cdn/primeng/images/card-ng.jpg" />
                 </ng-template>
                 <ng-template #title> {{card.title}} </ng-template>
-                <ng-template #subtitle> {{card.subtitle}} </ng-template>                      
+                <ng-template #subtitle> {{card.subtitle}} </ng-template>
             </p-card>
-        } @placeholder (minimum 1s) { 
+        } @placeholder (minimum 1s) {
             <p-skeleton width="20rem" height="20rem" />
         }
     </div>
