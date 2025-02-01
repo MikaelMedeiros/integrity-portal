@@ -16,12 +16,15 @@ export class DetailIndicatorsComponent {
   id: string | null = null;
 
   evidences: any[] = [
-    { name: 'Sim', code: true },
-    { name: 'Não', code: false },
-    { name: 'Não se aplica', code: null }
+    { name: 'Sim', code: 1 },
+    { name: 'Não', code: 0 },
+    { name: 'Não se aplica', code: -1 }
   ];
   selectedEvidence: boolean | null = null;
 
+  getEvidenceDescription(code: number): string {
+    return this.evidences.find(e => e.code === code)?.name || '';
+  }
 
 
 }

@@ -18,33 +18,33 @@ export class DetailPrincipleComponent implements OnInit {
 
   subcomponents: Subcomponent[] = [
     { id: 1, header: 'subcomponent 1', indicators: [ 
-      {id: 1, description: "lorem ipsum", evidence: true, status: "ok"},
-      {id: 2, description: "lorem ipsum", evidence: true, status: "ok"},
-      {id: 3, description: "lorem ipsum", evidence: true, status: "ok"}]},
+      {id: 1, description: "lorem ipsum", evidence: 1, status: "ok"},
+      {id: 2, description: "lorem ipsum", evidence: 1, status: "ok"},
+      {id: 3, description: "lorem ipsum", evidence: 1, status: "ok"}]},
     { id: 2, header: 'subcomponent 2', indicators: [ 
-      {id: 1, description: "lorem ipsum", evidence: false, status: "ok"},
-      {id: 2, description: "lorem ipsum", evidence: false, status: "ok"},
-      {id: 3, description: "lorem ipsum", evidence: false, status: "ok"}]
+      {id: 1, description: "lorem ipsum", evidence: 0, status: "ok"},
+      {id: 2, description: "lorem ipsum", evidence: 0, status: "ok"},
+      {id: 3, description: "lorem ipsum", evidence: 0, status: "ok"}]
     },
     { id: 3, header: 'subcomponent 3', indicators: [
-      {id: 1, description: "lorem ipsum", evidence: true, status: "ok"},
-      {id: 2, description: "lorem ipsum", evidence: false, status: "ok"},
-      {id: 3, description: "lorem ipsum", evidence: true, status: "ok"},
-      {id: 4, description: "lorem ipsum", evidence: false, status: "ok"},]
+      {id: 1, description: "lorem ipsum", evidence: -1, status: "ok"},
+      {id: 2, description: "lorem ipsum", evidence: 0, status: "ok"},
+      {id: 3, description: "lorem ipsum", evidence: 1, status: "ok"},
+      {id: 4, description: "lorem ipsum", evidence: 1, status: "ok"},]
     }
   ]
 
   indicators = [ 
-    {id: 1, description: "lorem ipsum", evidence: true, status: "ok"},
-    {id: 2, description: "lorem ipsum", evidence: true, status: "ok"},
-    {id: 3, description: "lorem ipsum", evidence: true, status: "ok"},
-    {id: 1, description: "lorem ipsum", evidence: false, status: "ok"},
-    {id: 2, description: "lorem ipsum", evidence: false, status: "ok"},
-    {id: 3, description: "lorem ipsum", evidence: false, status: "ok"},
-    {id: 1, description: "lorem ipsum", evidence: true, status: "ok"},
-    {id: 2, description: "lorem ipsum", evidence: false, status: "ok"},
-    {id: 3, description: "lorem ipsum", evidence: true, status: "ok"},
-    {id: 4, description: "lorem ipsum", evidence: false, status: "ok"}
+    {id: 1, description: "lorem ipsum", evidence: 1, status: "ok"},
+    {id: 2, description: "lorem ipsum", evidence: 1, status: "ok"},
+    {id: 3, description: "lorem ipsum", evidence: 1, status: "ok"},
+    {id: 1, description: "lorem ipsum", evidence: 0, status: "ok"},
+    {id: 2, description: "lorem ipsum", evidence: 0, status: "ok"},
+    {id: 3, description: "lorem ipsum", evidence: 0, status: "ok"},
+    {id: 1, description: "lorem ipsum", evidence: 1, status: "ok"},
+    {id: 2, description: "lorem ipsum", evidence: -1, status: "ok"},
+    {id: 3, description: "lorem ipsum", evidence: 1, status: "ok"},
+    {id: 4, description: "lorem ipsum", evidence: -1, status: "ok"}
   ];
 
   layout: LayoutDecisionPrinciple | undefined;
