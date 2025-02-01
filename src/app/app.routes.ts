@@ -15,6 +15,11 @@ export const routes: Routes = [
         .then(m => m.NavComponent),
     children: [
       {
+        path: '',
+        redirectTo: 'home',
+        pathMatch: 'full'
+      },
+      {
         path: 'home',
         loadComponent: () =>
           import('./pages/home/home.component')
