@@ -68,5 +68,14 @@ export class ToastService {
       life: 3500,
     });
   }
+  
+  infoMsg(msg: string){
+    this.messageService.clear();
+    this.messageService.add({
+      severity: 'info',
+      detail: msg,
+      life: 3500,
+    });
+  }
 
 }
