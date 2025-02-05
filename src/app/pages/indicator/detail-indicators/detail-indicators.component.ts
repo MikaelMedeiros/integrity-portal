@@ -2,15 +2,16 @@ import { Component, Input } from '@angular/core';
 import { Indicator } from '../../../model/Indicator';
 import { TableModule } from 'primeng/table';
 import { SelectModule } from 'primeng/select';
-import { FileUploadModule } from 'primeng/fileupload';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ToastService } from '../../../shared/toast.service';
-import { FileUpload } from 'primeng/fileupload';
+import { DataViewModule } from 'primeng/dataview';
+import { Button, ButtonModule } from 'primeng/button';
+import { UploadEvidenceComponent } from '../upload-evidence/upload-evidence.component';
 
 @Component({
   selector: 'app-detail-indicators',
-  imports: [CommonModule, FormsModule , TableModule, SelectModule, FileUploadModule, FileUpload],
+  imports: [CommonModule, FormsModule , TableModule, SelectModule, ButtonModule, UploadEvidenceComponent],
   templateUrl: './detail-indicators.component.html',
   styleUrl: './detail-indicators.component.css',
   providers: [ToastService]
@@ -21,7 +22,8 @@ export class DetailIndicatorsComponent {
   id: string | null = null;
 
   uploadedFiles: any[] = [];
-
+  uploadedEvent: any;
+  visible: boolean = false;
   constructor(private toastService: ToastService) {}
 
   onUpload(event:any) {
@@ -43,5 +45,9 @@ export class DetailIndicatorsComponent {
     return this.evidences.find(e => e.code === code)?.name || '';
   }
 
+  addAnexo(event: any) {
+    this.uploadedEvent = event.value;
+    this.visible = true;
+  }
 
 }

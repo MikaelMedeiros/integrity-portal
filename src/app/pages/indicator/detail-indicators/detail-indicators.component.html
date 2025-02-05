@@ -27,8 +27,8 @@
             </td>
 
             <td>
-                   testes
-            
+              <p-button label="Anexos" icon="pi pi-plus" (click)="addAnexo($event)"></p-button>
+
             </td>
 
             <td>
@@ -38,4 +38,7 @@
         </tr>
     </ng-template>
 </p-table>
+
+<app-upload-evidence [uploadEvent]="uploadedEvent" [visible]="visible"></app-upload-evidence>
+
 

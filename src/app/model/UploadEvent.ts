@@ -1,4 +1,4 @@
-interface UploadEvent {
-    originalEvent: Event;
+export interface UploadEvent {
+    originalEvent: Event | null;
     files: File[];
 }
