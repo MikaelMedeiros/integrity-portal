@@ -23,8 +23,12 @@ export class UploadEvidenceComponent {
 
 
  onFileSelected(event: any) {
-    for (let file of event.files) {
+  const input = event.target as HTMLInputElement;
+  if (input.files) {
+    for (let file of input.files) {
       this.uploadEvent.files.push(file);
     }
   }
+}
+
 }
