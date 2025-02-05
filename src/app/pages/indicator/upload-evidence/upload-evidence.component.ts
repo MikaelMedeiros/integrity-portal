@@ -18,7 +18,7 @@ import { UploadEvent } from '../../../model/UploadEvent';
   styleUrl: './upload-evidence.component.css'
 })
 export class UploadEvidenceComponent {
- @Input() uploadEvent: any ;
+ @Input() anexos: any[] = [] ;
  @Input() visible: boolean =  false;
 
 
@@ -26,7 +26,7 @@ export class UploadEvidenceComponent {
   const input = event.target as HTMLInputElement;
   if (input.files) {
     for (let file of input.files) {
-      this.uploadEvent.files.push(file);
+      this.anexos.push(file);
     }
   }
 }

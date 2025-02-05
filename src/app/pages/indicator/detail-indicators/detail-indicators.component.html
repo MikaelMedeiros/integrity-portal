@@ -27,7 +27,7 @@
             </td>
 
             <td>
-              <p-button label="Anexos" icon="pi pi-plus" (click)="addAnexo($event)"></p-button>
+              <p-button label="Anexos" icon="pi pi-plus" (click)="addAnexo(indicator.uploads)"></p-button>
 
             </td>
 
@@ -39,6 +39,6 @@
     </ng-template>
 </p-table>
 
-<app-upload-evidence [uploadEvent]="uploadedEvent" [visible]="visible"></app-upload-evidence>
+<app-upload-evidence [anexos]="anexos" [visible]="visible"></app-upload-evidence>
 
 

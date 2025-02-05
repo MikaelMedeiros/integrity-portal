@@ -5,8 +5,7 @@ import { SelectModule } from 'primeng/select';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ToastService } from '../../../shared/toast.service';
-import { DataViewModule } from 'primeng/dataview';
-import { Button, ButtonModule } from 'primeng/button';
+import { ButtonModule } from 'primeng/button';
 import { UploadEvidenceComponent } from '../upload-evidence/upload-evidence.component';
 
 @Component({
@@ -21,18 +20,8 @@ export class DetailIndicatorsComponent {
 
   id: string | null = null;
 
-  uploadedFiles: any[] = [];
-  uploadedEvent: any;
+  anexos: any[] = [];
   visible: boolean = false;
-  constructor(private toastService: ToastService) {}
-
-  onUpload(event:any) {
-      for(let file of event.files) {
-          this.uploadedFiles.push(file);
-      }
-
-      this.toastService.infoMsg('Arquivo(s) enviado(s) com sucesso!');
-  }
 
   evidences: any[] = [
     { name: 'Sim', code: 1 },
@@ -45,8 +34,8 @@ export class DetailIndicatorsComponent {
     return this.evidences.find(e => e.code === code)?.name || '';
   }
 
-  addAnexo(event: any) {
-    this.uploadedEvent = event.value;
+  addAnexo(anexos: any) {
+    this.anexos = anexos;
     this.visible = true;
   }
 
